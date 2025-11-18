@@ -55,6 +55,7 @@ body.dark-mode #navbar {
     font-weight: bold;
     color: #63b3ed;
     cursor: pointer;
+    margin-left: 20px;
 }
 
 .nav-menu {
@@ -99,6 +100,15 @@ body.dark-mode #navbar {
     display: none;
     cursor: pointer;
     color: #e2e8f0;
+    transition: transform 0.3s;
+}
+
+.nav-toggle:hover {
+    transform: scale(1.1);
+}
+
+.nav-toggle.open i {
+    transform: rotate(90deg);
 }
 
 .dark-mode-toggle {
@@ -108,6 +118,7 @@ body.dark-mode #navbar {
     font-size: 1.2rem;
     cursor: pointer;
     transition: transform 0.3s;
+    margin-right: 20px;
 }
 
 .dark-mode-toggle:hover {
@@ -389,13 +400,76 @@ footer {
 
 /* Responsive design */
 @media (max-width: 768px) {
-    .name {
-        font-size: 1.5rem;
+    body {
+        padding-top: 60px;
     }
 
-    .contact-links {
+    .nav-menu {
+        position: fixed;
+        top: 60px;
+        left: -100%;
+        width: 100%;
+        height: calc(100vh - 60px);
+        background: linear-gradient(135deg, #1a365d 0%, #2d3748 100%);
         flex-direction: column;
-        gap: 10px;
+        justify-content: flex-start;
+        align-items: center;
+        padding-top: 50px;
+        transition: left 0.3s;
+    }
+
+    .nav-menu.active {
+        left: 0;
+    }
+
+    .nav-menu li {
+        margin: 20px 0;
+    }
+
+    .nav-toggle {
+        display: block;
+    }
+
+    .nav-close {
+        position: absolute;
+        top: 20px;
+        right: 20px;
+        font-size: 2rem;
+        cursor: pointer;
+        color: #e2e8f0;
+        transition: color 0.3s;
+    }
+
+    .nav-close:hover {
+        color: #63b3ed;
+    }
+
+    .hero {
+        height: 100vh;
+        padding: 0 20px;
+    }
+
+    .hero-title {
+        font-size: 2.5rem;
+    }
+
+    .hero-subtitle {
+        font-size: 1.4rem;
+    }
+
+    .hero-description {
+        font-size: 1rem;
+    }
+
+    .hero-links {
+        flex-direction: column;
+        gap: 15px;
+    }
+
+    .hero-link {
+        padding: 10px 15px;
+        min-width: 120px;
+        justify-content: center;
     }
 
     .section {
@@ -406,19 +480,34 @@ footer {
         font-size: 2rem;
     }
 
-    nav {
+    .education-header {
         flex-direction: column;
-        align-items: center;
-        gap: 20px;
+        align-items: flex-start;
+        gap: 10px;
+    }
+
+    .school-logo {
+        height: 40px;
     }
 
     .projects-grid,
     .skills-grid {
         grid-template-columns: 1fr;
+        gap: 20px;
     }
 
     .project-card,
     .skill-category {
         padding: 20px;
+    }
+
+    .skills-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    @media (max-width: 480px) {
+        .skills-grid {
+            grid-template-columns: 1fr;
+        }
     }
 }

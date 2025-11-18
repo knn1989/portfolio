@@ -12,21 +12,35 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
     });
 });
 
-// Navigation menu toggle for mobile (if needed)
+// Navigation menu toggle for mobile
 const navToggle = document.getElementById('nav-toggle');
 const navMenu = document.getElementById('nav-menu');
-navToggle.addEventListener('click', () => {
+const navClose = document.getElementById('nav-close');
+const navLinks = document.querySelectorAll('.nav-link');
+
+function toggleMenu() {
     navMenu.classList.toggle('active');
+    navToggle.classList.toggle('open');
+}
+
+navToggle.addEventListener('click', toggleMenu);
+
+// Close menu when close button is clicked
+navClose.addEventListener('click', toggleMenu);
+
+// Close menu when a link is clicked
+navLinks.forEach(link => {
+    link.addEventListener('click', toggleMenu);
 });
 
 // Active nav link on scroll
 const sections = document.querySelectorAll('.section');
-const navLinks = document.querySelectorAll('.nav-link');
+const scrollNavLinks = document.querySelectorAll('.nav-link');
 
 const navObserver = new IntersectionObserver((entries) => {
     entries.forEach(entry => {
         if (entry.isIntersecting) {
-            navLinks.forEach(link => link.classList.remove('active'));
+            scrollNavLinks.forEach(link => link.classList.remove('active'));
             const activeLink = document.querySelector(`.nav-link[href="#${entry.target.id}"]`);
             if (activeLink) activeLink.classList.add('active');
         }
