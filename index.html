@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Khuong Nguyen - Portfolio</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <header>
+        <nav id="navbar">
+            <div class="container nav-container">
+                <div class="nav-logo">KN</div>
+                <ul class="nav-menu" id="nav-menu">
+                    <li><a href="#about" class="nav-link">About</a></li>
+                    <li><a href="#experience" class="nav-link">Experience</a></li>
+                    <li><a href="#projects" class="nav-link">Projects</a></li>
+                    <li><a href="#skills" class="nav-link">Skills</a></li>
+                    <li><a href="#education" class="nav-link">Education</a></li>
+                    <li><a href="#publications" class="nav-link">Publications</a></li>
+                </ul>
+                <div class="nav-toggle" id="nav-toggle">
+                    <i class="fas fa-bars"></i>
+                </div>
+                <button class="dark-mode-toggle" id="dark-mode-toggle"><i class="fas fa-moon"></i></button>
+            </div>
+        </nav>
+        <section id="hero" class="hero">
+            <div class="hero-container container">
+                <h1 class="hero-title">Hi, I'm <span class="highlight">Khuong Nguyen</span></h1>
+                <h2 class="hero-subtitle">Machine Learning Engineer & AI Innovator</h2>
+                <p class="hero-description">Specialized in AI for Wireless Technologies and Edge Device Systems</p>
+                <div class="hero-links">
+                    <a href="mailto:khuong.nguyen1289@gmail.com" class="hero-link">
+                        <i class="fas fa-envelope"></i> Email
+                    </a>
+                    <a href="https://www.linkedin.com/in/nguyen-404b2570/" class="hero-link" target="_blank">
+                        <i class="fab fa-linkedin"></i> LinkedIn
+                    </a>
+                    <a href="https://scholar.google.com/citations?user=nN8odyoAAAAJ&hl=en" class="hero-link" target="_blank">
+                        <i class="fab fa-google"></i> Scholar
+                    </a>
+                    <a href="https://github.com/knn1989" class="hero-link" target="_blank">
+                        <i class="fab fa-github"></i> GitHub
+                    </a>
+                    <a href="assets/resume.pdf" class="hero-link download-link" download>
+                        <i class="fas fa-download"></i> Resume
+                    </a>
+                </div>
+            </div>
+            <div id="particles-js"></div>
+        </section>
+    </header>
+
+    <main>
+        <section id="about" class="section">
+            <div class="container">
+                <h2>About Me</h2>
+                <p id="about-text"></p>
+            </div>
+        </section>
+
+        <section id="experience" class="section">
+            <div class="container">
+                <h2>Experience</h2>
+                <div class="experience-item">
+                    <h3>Staff Research Engineer II, Samsung Research America</h3>
+                    <p class="location">Plano, Texas | 08/2024 - Present</p>
+                    <p>Leading advanced AI solutions for wireless technologies.</p>
+                </div>
+                <div class="experience-item">
+                    <h3>Staff Research Engineer I, Samsung Research America</h3>
+                    <p class="location">Plano, Texas | 03/2022 - 08/2024</p>
+                    <p>Designing and deploying cutting-edge AI solutions for wireless communication and wireless sensing.</p>
+                </div>
+                <div class="experience-item">
+                    <h3>Senior Research Engineer, Samsung Research America</h3>
+                    <p class="location">Richardson, Texas | 08/2018 - 03/2022</p>
+                    <p>Authored research papers and drafted patents for innovative AI implementations.</p>
+                </div>
+            </div>
+        </section>
+
+        <section id="projects" class="section">
+            <div class="container">
+                <h2>Notable Projects</h2>
+                <div class="projects-grid">
+                    <div class="project-card">
+                        <h3>Intelligent Wi-Fi</h3>
+                        <p>Developed an AI-powered internet traffic analyzer for Samsung's flagship smartphones, achieving up to 99% accuracy in identifying network service types. Enhanced user experience through intelligent traffic management and resource optimization.</p>
+                        <p class="tech">Technologies: Python, TensorFlow, PyTorch, Machine Learning</p>
+                    </div>
+                    <div class="project-card">
+                        <h3>mmWave Radar Sensing</h3>
+                        <p>Designed gesture recognition systems using Qualcomm's 802.11ay chipset mmWave radar sensors. Developed finger tracking systems for mobile devices. Recognized with Q4 2019 Samsung Mobile Communications Division CTO Award.</p>
+                        <p class="tech">Technologies: C/C++, Android Development, Edge AI</p>
+                    </div>
+                    <div class="project-card">
+                        <h3>Ultra-wideband (UWB) Technologies</h3>
+                        <p>Engineered a D2D 3D Field of View identification system for applications in data transferring and indoor localization. Adopted by Samsung Galaxy Flip and Fold devices.</p>
+                        <p class="tech">Technologies: JavaScript, Python, Wi-Fi Technologies</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="skills" class="section">
+            <div class="container">
+                <h2>Technical Skills</h2>
+                <div class="skills-grid">
+                    <div class="skill-category">
+                        <h3><i class="fas fa-code"></i> Programming</h3>
+                        <ul>
+                            <li><i class="fab fa-python"></i> Python</li>
+                            <li><i class="fab fa-java"></i> Java</li>
+                            <li><i class="fas fa-c"></i> C/C++</li>
+                            <li><i class="fab fa-js-square"></i> JavaScript</li>
+                        </ul>
+                    </div>
+                    <div class="skill-category">
+                        <h3><i class="fas fa-layer-group"></i> Libraries & Frameworks</h3>
+                        <ul>
+                            <li><i class="fas fa-brain"></i> TensorFlow</li>
+                            <li><i class="fas fa-cubes"></i> PyTorch</li>
+                            <li><i class="fas fa-robot"></i> Keras</li>
+                            <li><i class="fas fa-chart-line"></i> Scikit-learn</li>
+                            <li><i class="fas fa-calculator"></i> Numpy</li>
+                            <li><i class="fas fa-camera"></i> OpenCV</li>
+                        </ul>
+                    </div>
+                    <div class="skill-category">
+                        <h3><i class="fas fa-database"></i> Databases</h3>
+                        <ul>
+                            <li><i class="fas fa-table"></i> SQL</li>
+                            <li><i class="fas fa-server"></i> MySQL</li>
+                        </ul>
+                    </div>
+                    <div class="skill-category">
+                        <h3><i class="fas fa-tools"></i> Other</h3>
+                        <ul>
+                            <li><i class="fab fa-android"></i> Android Development</li>
+                            <li><i class="fab fa-git-alt"></i> Git</li>
+                            <li><i class="fas fa-code-branch"></i> P4V</li>
+                            <li><i class="fas fa-version-control"></i> DVC</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="education" class="section">
+            <div class="container">
+                <h2>Education</h2>
+                <div class="education-item">
+                    <h3>Ph.D. in Computer Science</h3>
+                    <p>Texas A&M University, College Station, TX, USA | Aug 2014 - Dec 2019</p>
+                    <p>Dissertation: Perception and Action: From Sensorimotor Learning to Intelligent Tool-Use Behavior</p>
+                    <p>Advisor: Prof. Yoonsuck Choe</p>
+                </div>
+                <div class="education-item">
+                    <h3>B.Sc. in Computer Engineering</h3>
+                    <p>University of Texas, Arlington, Arlington, TX, USA | Aug 2011 - May 2014</p>
+                </div>
+            </div>
+        </section>
+
+        <section id="publications" class="section">
+            <div class="container">
+                <h2>Publications & Patents</h2>
+                <h3>Publications</h3>
+                <ul>
+                    <li>A. Ali, P. Parida, V. Va, S. Ni, K. N. Nguyen, B. Ng and C. Zhang, "End-to-End Dynamic Gesture Recognition Using MmWave Radar." in IEEE Access, vol. 10, pp. 88692-88706, 2022.</li>
+                    <li>Khuong N Nguyen, Anum Ali, Jianhua Mo, Boon Loong Ng, Vutha Va, Jianzhong Charlie Zhang, "Beam management with orientation and RSRP using deep learning for beyond 5G systems." 2022 IEEE International Conference on Communications Workshops.</li>
+                    <li>W. Qiu, G. Chen, K. N. Nguyen, A. Sehgal, P. Nayak and J. Choi, "Category-Based 802.11ax Target Wake Time Solution." in IEEE Access, 2021.</li>
+                </ul>
+                <h3>Patents</h3>
+                <ul>
+                    <li>Khuong N. Nguyen, Guanbo Chen, Hao Chen, Abhishek Sehgal, Rebal Al Jurdi, "System and method for detecting network services based on network traffic using machine learning." US Patent 12040914.</li>
+                    <li>Wenxun Qiu, Hao Chen, Matthew Tonnemacher, JUNG In-Sick, Jihoon Sung, Khuong N Nguyen, Abhishek Sehgal, Jianhua Mo, Jianzhong Zhang, Junyeop Jung, John Wensowitch, Eric Johnson, PARK Namjoon, "Method and apparatus for intelligent WiFi connection management." US Patent 11284473.</li>
+                    <li>Khuong N. Nguyen, W. Qiu, H. Wang, B. Ng, "Methods for Gesture Recognition and Control." US Patent 11442550.</li>
+                </ul>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2025 Khuong Nguyen. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/particles.js@2.0.0/particles.min.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>
