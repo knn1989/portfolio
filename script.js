@@ -169,6 +169,44 @@ const aboutText = "Machine Learning Engineer with extensive research and practic
 
 window.addEventListener('load', () => {
     typeWriter(document.getElementById('about-text'), aboutText, 50);
+
+    // Count and display publication and patent totals
+    const pubList = document.querySelector('.publications-list');
+    const patList = document.querySelector('.patents-list');
+
+    if (pubList) {
+        const pubCount = pubList.querySelectorAll('li').length;
+        document.querySelector('#publications h3:nth-of-type(1)').textContent = `Publications (${pubCount})`;
+    }
+
+    if (patList) {
+        const patCount = patList.querySelectorAll('li').length;
+        document.querySelector('#publications h3:nth-of-type(2)').textContent = `Patents (${patCount})`;
+    }
+});
+
+// Show more/less for publications and patents
+document.querySelectorAll('.show-more-btn').forEach(button => {
+    button.addEventListener('click', () => {
+        const section = button.getAttribute('data-section');
+        const list = document.querySelector(`.${section}-list`);
+        const allItems = list.querySelectorAll('li');
+        const isExpanded = button.getAttribute('data-expanded') === 'true';
+
+        if (!isExpanded) {
+            // Show all items
+            allItems.forEach(item => item.classList.remove('hidden'));
+            button.textContent = `Show Less ${section.charAt(0).toUpperCase() + section.slice(1)}`;
+            button.setAttribute('data-expanded', 'true');
+        } else {
+            // Hide beyond first 3
+            for (let i = 3; i < allItems.length; i++) {
+                allItems[i].classList.add('hidden');
+            }
+            button.textContent = `Show More ${section.charAt(0).toUpperCase() + section.slice(1)}`;
+            button.setAttribute('data-expanded', 'false');
+        }
+    });
 });
 
 // Particles.js for background (simple initialization)
