@@ -17,10 +17,14 @@ const navToggle = document.getElementById('nav-toggle');
 const navMenu = document.getElementById('nav-menu');
 const navClose = document.getElementById('nav-close');
 const navLinks = document.querySelectorAll('.nav-link');
+const navIcon = navToggle ? navToggle.querySelector('i') : null;
 
 function toggleMenu() {
     navMenu.classList.toggle('active');
     navToggle.classList.toggle('open');
+    if (navIcon) {
+        navIcon.className = navMenu.classList.contains('active') ? 'fas fa-times' : 'fas fa-bars';
+    }
 }
 
 if (navToggle) {

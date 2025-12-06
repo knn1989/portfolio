@@ -149,6 +149,15 @@ body.dark-mode #navbar {
     cursor: pointer;
     color: var(--text);
     font-size: 1.3rem;
+    transition: transform 0.25s ease;
+}
+
+.nav-toggle i {
+    transition: transform 0.25s ease;
+}
+
+.nav-toggle.open i {
+    transform: rotate(90deg);
 }
 
 .dark-mode-toggle {
@@ -851,6 +860,7 @@ footer {
         gap: 22px;
         transition: right 0.3s ease;
         z-index: 999;
+        padding: 20px;
     }
 
     .nav-menu.active {
@@ -876,6 +886,25 @@ footer {
     .hero {
         padding: 0 0 20px;
     }
+
+    .hero-grid {
+        grid-template-columns: 1fr;
+        padding: 80px 0 60px;
+        text-align: center;
+    }
+
+    .hero-content {
+        justify-items: center;
+    }
+
+    .hero-actions {
+        justify-content: center;
+    }
+
+    .hero-panel {
+        max-width: 640px;
+        margin: 0 auto;
+    }
 }
 
 @media (max-width: 600px) {
@@ -883,7 +912,11 @@ footer {
         padding-top: 70px;
     }
 
-    .hero-actions { flex-direction: column; align-items: flex-start; }
+    .nav-container {
+        padding: 14px 16px;
+    }
+
+    .hero-actions { flex-direction: column; align-items: center; }
 
     .hero-stats { grid-template-columns: repeat(auto-fit, minmax(140px, 1fr)); }
 
@@ -891,4 +924,17 @@ footer {
     .timeline::before { left: 6px; }
     .timeline-card { padding: 18px; }
     .timeline-dot { left: -26px; }
+
+    .section { padding: 64px 0; }
+
+    .projects-grid,
+    .skills-grid,
+    .education-grid,
+    .list-stack {
+        grid-template-columns: 1fr;
+    }
+
+    .pill-row { justify-content: center; }
+
+    .hero-tags { justify-content: center; }
 }
