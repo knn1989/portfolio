@@ -23,14 +23,20 @@ function toggleMenu() {
     navToggle.classList.toggle('open');
 }
 
-navToggle.addEventListener('click', toggleMenu);
+if (navToggle) {
+    navToggle.addEventListener('click', toggleMenu);
+}
 
-// Close menu when close button is clicked
-navClose.addEventListener('click', toggleMenu);
+if (navClose) {
+    navClose.addEventListener('click', toggleMenu);
+}
 
-// Close menu when a link is clicked
 navLinks.forEach(link => {
-    link.addEventListener('click', toggleMenu);
+    link.addEventListener('click', () => {
+        if (navMenu.classList.contains('active')) {
+            toggleMenu();
+        }
+    });
 });
 
 // Active nav link on scroll
@@ -68,14 +74,12 @@ document.querySelectorAll('.section').forEach(section => {
     fadeObserver.observe(section);
 });
 
-// Add fade-in class to CSS dynamically if needed, but better to add to initial styles
-// Assuming it will be added, this just triggers the class addition
-
 // Back to top button (optional enhancement)
 const backToTopButton = document.createElement('button');
 backToTopButton.innerHTML = '↑';
 backToTopButton.className = 'back-to-top';
 backToTopButton.style.display = 'none';
+backToTopButton.setAttribute('aria-label', 'Back to top');
 backToTopButton.addEventListener('click', () => {
     window.scrollTo({
         top: 0,
@@ -87,40 +91,8 @@ document.body.appendChild(backToTopButton);
 
 // Show/hide back to top button
 window.addEventListener('scroll', () => {
-    if (window.scrollY > 500) {
-        backToTopButton.style.display = 'block';
-    } else {
-        backToTopButton.style.display = 'none';
-    }
+    backToTopButton.style.display = window.scrollY > 500 ? 'block' : 'none';
 });
-
-// Styling for back to top button
-const style = document.createElement('style');
-style.innerHTML = `
-    .back-to-top {
-        position: fixed;
-        bottom: 20px;
-        right: 20px;
-        background-color: #5a67d8;
-        color: white;
-        border: none;
-        border-radius: 50%;
-        width: 50px;
-        height: 50px;
-        font-size: 20px;
-        cursor: pointer;
-        transition: background-color 0.3s;
-    }
-    .back-to-top:hover {
-        background-color: #4c51bf;
-    }
-    .fade-in {
-        opacity: 0;
-        transform: translateY(20px);
-        transition: opacity 0.6s, transform 0.6s;
-    }
-`;
-document.head.appendChild(style);
 
 // Dark mode toggle
 const darkModeToggle = document.getElementById('dark-mode-toggle');
@@ -168,21 +140,36 @@ function typeWriter(element, text, speed) {
 const aboutText = "Machine Learning Engineer with extensive research and practical experience in Artificial Intelligence, Machine Learning, and Edge Device Systems. Proficient in building and deploying AI solutions in Wireless Communications, Wireless Sensing, and Wi-Fi Technologies. Skilled in frameworks like TensorFlow and PyTorch, with a strong ability to manage projects independently and deliver impactful results.";
 
 window.addEventListener('load', () => {
-    typeWriter(document.getElementById('about-text'), aboutText, 50);
+    const aboutElement = document.getElementById('about-text');
+    if (aboutElement) {
+        typeWriter(aboutElement, aboutText, 50);
+    }
 
     // Count and display publication and patent totals
     const pubList = document.querySelector('.publications-list');
     const patList = document.querySelector('.patents-list');
+    const pubCount = pubList ? pubList.querySelectorAll('li').length : 0;
+    const patCount = patList ? patList.querySelectorAll('li').length : 0;
 
-    if (pubList) {
-        const pubCount = pubList.querySelectorAll('li').length;
-        document.querySelector('#publications h3:nth-of-type(1)').textContent = `Publications (${pubCount})`;
-    }
+    const pubCountTarget = document.getElementById('publication-count');
+    const patCountTarget = document.getElementById('patent-count');
+    const pubChip = document.getElementById('publication-chip');
+    const patChip = document.getElementById('patent-chip');
 
-    if (patList) {
-        const patCount = patList.querySelectorAll('li').length;
-        document.querySelector('#publications h3:nth-of-type(2)').textContent = `Patents (${patCount})`;
-    }
+    if (pubCountTarget) pubCountTarget.textContent = pubCount;
+    if (patCountTarget) patCountTarget.textContent = patCount;
+    if (pubChip) pubChip.textContent = `${pubCount} items`;
+    if (patChip) patChip.textContent = `${patCount} items`;
+
+    // Ensure lists start collapsed beyond the first three items
+    document.querySelectorAll('.show-more-btn').forEach(button => {
+        const section = button.getAttribute('data-section');
+        const list = document.querySelector(`.${section}-list`);
+        const allItems = list ? list.querySelectorAll('li') : [];
+        for (let i = 3; i < allItems.length; i++) {
+            allItems[i].classList.add('hidden');
+        }
+    });
 });
 
 // Show more/less for publications and patents
@@ -190,6 +177,8 @@ document.querySelectorAll('.show-more-btn').forEach(button => {
     button.addEventListener('click', () => {
         const section = button.getAttribute('data-section');
         const list = document.querySelector(`.${section}-list`);
+        if (!list) return;
+
         const allItems = list.querySelectorAll('li');
         const isExpanded = button.getAttribute('data-expanded') === 'true';
 
