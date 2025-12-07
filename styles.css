@@ -608,6 +608,19 @@ body.dark-mode .section:nth-of-type(even) {
 .company {
     color: var(--accent);
     font-weight: 700;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.company-logo {
+    width: 34px;
+    height: 34px;
+    object-fit: contain;
+    border-radius: 6px;
+    box-shadow: var(--shadow);
+    background: #fff;
+    padding: 4px;
 }
 
 .location {
