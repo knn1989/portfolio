@@ -876,10 +876,12 @@ footer {
         background: var(--panel);
         flex-direction: column;
         justify-content: center;
+        align-items: center;
         gap: 22px;
         transition: right 0.3s ease;
         z-index: 999;
         padding: 20px;
+        text-align: center;
     }
 
     .nav-menu.active {
@@ -892,12 +894,11 @@ footer {
 
     .nav-close {
         display: block;
-        position: absolute;
-        top: 18px;
-        right: 22px;
-        font-size: 1.8rem;
+        position: static;
+        font-size: 2rem;
         cursor: pointer;
         color: #e5edff;
+        align-self: center;
     }
 
     .nav-toggle { display: block; }
